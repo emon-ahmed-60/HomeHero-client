@@ -1,11 +1,21 @@
 import React from 'react';
 import { IoMdHome } from 'react-icons/io';
 import { Link, NavLink } from 'react-router';
+import useAuth from '../Hooks/useAuth';
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
+  const {user,logOut} = useAuth();
     const links = <>
     <li><NavLink to="/">Home</NavLink> </li>
     </>
+    const handleLogOut = () => {
+      logOut().then(()=>{
+        toast.success("logout successfull")
+      }).catch(err => {
+        toast.error(err.code)
+      })
+    }
     return (
         <div className="navbar bg-base-100 shadow-sm">
   <div className="navbar-start">
@@ -26,8 +36,11 @@ const Navbar = () => {
       {links}
     </ul>
   </div>
-  <div className="navbar-end">
-    <a className="btn">Button</a>
+  <div className="navbar-end gap-2">
+    {
+      user ? <button onClick={handleLogOut} className="btn">LogOut</button> :<><Link to="/login" className="btn">Login</Link>
+    <Link to='/register' className="btn">Register</Link></>
+    }
   </div>
 </div>
     );
