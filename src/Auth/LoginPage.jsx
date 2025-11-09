@@ -1,9 +1,10 @@
 import React from "react";
 import useAuth from "../Hooks/useAuth";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 
 const LoginPage = () => {
+  const location = useLocation();
   const {loginUser,googleSignIn} = useAuth();
   const navigate = useNavigate();
 
@@ -13,7 +14,12 @@ const LoginPage = () => {
             const password = e.target.password.value;
             loginUser(email,password)
             .then(res => {
-              navigate("/")
+              if(location.state){
+                navigate(location.state)
+              } else {
+                navigate("/")
+              }
+              toast.success("login successfull")
             }).catch(err => {
               toast.error("user not exist")
             })
@@ -22,8 +28,12 @@ const LoginPage = () => {
 
         const handleGoogleLogin = () => {
               googleSignIn().then(res => {
+                 if(location.state){
+                navigate(location.state)
+              } else {
                 navigate("/")
-                toast.success("user created")
+              }
+                toast.success("login successfull")
               }).catch(err => {
                 toast.error(err.code);
               })
