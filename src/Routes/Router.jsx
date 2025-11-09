@@ -9,11 +9,14 @@ import PrivateRoute from "./PrivateRoute";
 import MyServices from "../Pages/MyServices";
 import AddService from "../Pages/AddService";
 import MyBooking from "../Pages/MyBooking";
+import NotFound from "../Components/NotFound";
+import Spinner from "../Components/Spinner";
 
 const router = createBrowserRouter([
     {
         path:"/",
         Component:RootLayout,
+        hydrateFallbackElement:<Spinner/>,
         children:[
             {
                 index:true,
@@ -46,6 +49,10 @@ const router = createBrowserRouter([
             {
                 path:"/my-booking",
                 element:<PrivateRoute> <MyBooking/> </PrivateRoute>
+            },
+            {
+                path:"*",
+                Component:NotFound
             }
         ]
     }
