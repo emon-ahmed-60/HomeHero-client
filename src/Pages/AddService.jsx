@@ -2,10 +2,12 @@ import React from 'react';
 import useAxios from '../Hooks/useAxios';
 import { toast } from 'react-toastify';
 import useAuth from '../Hooks/useAuth';
+import { useNavigate } from 'react-router';
 
 const AddService = () => {
     const {user} = useAuth();
     const instance = useAxios()
+    const navigate = useNavigate();
 
     const handleAddService = e => {
         e.preventDefault();
@@ -22,7 +24,7 @@ const AddService = () => {
         instance.post("/add-service",newService)
         .then(data => {
             toast.success("service added")
-            console.log(data.data);
+            navigate("/my-service")
         }).catch(err => {
             toast.error(err.code)
         })

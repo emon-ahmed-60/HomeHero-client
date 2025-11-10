@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import useAuth from "../Hooks/useAuth";
 import useAxios from "../Hooks/useAxios";
 import { Link } from "react-router";
+import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 
 const MyServices = () => {
   const instance = useAxios();
@@ -11,7 +13,35 @@ const MyServices = () => {
     instance.get(`/my-services?email=${user?.email}`).then((data) => {
       setMyServices([...data.data]);
     });
-  }, []);
+  }, [user]);
+
+  const handleDeleteService = (id) => {
+    Swal.fire({
+  title: "Are you sure?",
+  text: "You want to delete this service",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#3085d6",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "Yes, delete it!"
+}).then((result) => {
+  if (result.isConfirmed) {
+   instance.delete(`/delete-service/${id}`)
+    .then(res => {
+      Swal.fire({
+      title: "Deleted!",
+      text: "Your service has been deleted.",
+      icon: "success"
+    });
+    const remaining = myServices.filter(service => service._id !== id)
+    setMyServices([...remaining])
+    }).catch(err => {
+      toast.error(err.code)
+    })
+  }
+});
+    
+  }
 
   return (
     <div>
@@ -61,7 +91,7 @@ const MyServices = () => {
                 </td>
 
                 <td>
-                  <button className="btn btn-primary rounded-full">
+                  <button onClick={()=>handleDeleteService(service._id)} className="btn btn-primary rounded-full">
                     Delete
                   </button>
                 </td>
