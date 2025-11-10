@@ -11,6 +11,7 @@ import AddService from "../Pages/AddService";
 import MyBooking from "../Pages/MyBooking";
 import NotFound from "../Components/NotFound";
 import Spinner from "../Components/Spinner";
+import MyServiceCard from "../Components/MyServiceCard";
 
 const router = createBrowserRouter([
     {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
              {
                 path:"/service",
                 Component:Services
+            },
+            {
+                path:"/my-service-card/:id",
+                Component:MyServiceCard
             },
             {
                 path:"/profile",

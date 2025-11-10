@@ -3,10 +3,12 @@ import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { IoMdHome } from "react-icons/io";
 import { Link } from "react-router";
+import useAuth from "../Hooks/useAuth";
 
 const Footer = () => {
+  const {theme} =useAuth();
   return (
-    <footer className="bg-neutral text-base-100 p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+    <footer className={`bg-neutral ${theme === "light" && "text-base-100"} p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5`}>
       <div>
         <h6 className="footer-title">
           {" "}
