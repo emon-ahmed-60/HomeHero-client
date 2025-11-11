@@ -12,6 +12,7 @@ import MyBooking from "../Pages/MyBooking";
 import NotFound from "../Components/NotFound";
 import Spinner from "../Components/Spinner";
 import MyServiceCard from "../Components/MyServiceCard";
+import ServiceDetails from "../Pages/ServiceDetails";
 
 const router = createBrowserRouter([
     {
@@ -37,7 +38,11 @@ const router = createBrowserRouter([
             },
             {
                 path:"/my-service-card/:id",
-                Component:MyServiceCard
+                element:<PrivateRoute> <MyServiceCard/> </PrivateRoute>
+            },
+            {
+                path:"/service-details/:id",
+                element:<PrivateRoute> <ServiceDetails/> </PrivateRoute>
             },
             {
                 path:"/profile",

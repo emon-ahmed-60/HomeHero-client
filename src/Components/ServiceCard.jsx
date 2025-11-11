@@ -1,15 +1,13 @@
 import React from "react";
+import { Link } from "react-router";
 
 const ServiceCard = ({ data }) => {
   const {
     serviceName,
-    category,
+    _id,
     description,
     serviceImg,
-    created_at,
-    price,
-    providerName,
-    email,
+  
   } = data || {};
 
   return (
@@ -19,16 +17,8 @@ const ServiceCard = ({ data }) => {
       </figure>
       <div className="card-body">
         <h2 className="card-title text-xl">{serviceName}</h2>
-        <p className="text-base-content">{description}</p>
-        <div className="flex items-center justify-between">
-          <p>{category}</p>
-          <p>{created_at}</p>
-        </div>
-        <div className="flex items-center justify-between">
-          <p>{providerName}</p>
-          <p>{email}</p>
-        </div>
-        <p>Price : ${price}</p>
+        <p className="text-base-content font-semibold">{description}</p>
+       <Link to={`/service-details/${_id}`} className="btn btn-primary">View Details</Link>
       </div>
     </div>
   );

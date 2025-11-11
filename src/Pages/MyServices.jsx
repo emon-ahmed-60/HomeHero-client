@@ -56,6 +56,7 @@ const MyServices = () => {
               <th>Service Name</th>
               <th>Category</th>
               <th>created_at</th>
+              <th>Service Price</th>
               <th>Service Update</th>
               <th>Service Delete</th>
               <th></th>
@@ -81,6 +82,7 @@ const MyServices = () => {
                 </td>
                 <td>{service.category}</td>
                 <td>{service.created_at}</td>
+                <td>{service.price}</td>
                 <td>
                   <Link
                     to={`/my-service-card/${service._id}`}
