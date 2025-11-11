@@ -7,6 +7,7 @@ const ServiceCard = ({ data }) => {
     _id,
     description,
     serviceImg,
+    price
   
   } = data || {};
 
@@ -18,6 +19,7 @@ const ServiceCard = ({ data }) => {
       <div className="card-body">
         <h2 className="card-title text-xl">{serviceName}</h2>
         <p className="text-base-content font-semibold">{description}</p>
+        <p className="text-base-content font-semibold text-lg">${price}</p>
        <Link to={`/service-details/${_id}`} className="btn btn-primary">View Details</Link>
       </div>
     </div>
