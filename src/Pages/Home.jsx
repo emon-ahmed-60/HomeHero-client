@@ -4,7 +4,6 @@ import useAxios from "../Hooks/useAxios";
 import ServiceCard from "../Components/ServiceCard";
 import CleaningMade from "../Components/CleaningMade";
 import HelpingThose from "../Components/HelpingThose";
-import { motion } from "motion/react"
 
 const Home = () => {
   const [services, setServices] = useState([]);
@@ -16,18 +15,17 @@ const Home = () => {
     });
   }, []);
   return (
-    <div>
+    <div className="overflow-hidden">
       <Banner />
       <h1 className="font-bold text-3xl text-base-content text-center mt-4">
         Our Latest Services
       </h1>
-      <motion.div
-      animate={{}}
+      <div
        className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mt-12 mb-8">
-        {services.map((service) => (
-          <ServiceCard key={service._id} data={service} />
+        {services.map((service,idx) => (
+          <ServiceCard key={service._id} data={service} i={idx}/>
         ))}
-      </motion.div>
+      </div>
       <h1 className="font-bold text-3xl text-base-content text-center mt-4">
         Professional Cleaning Made Simple
       </h1>

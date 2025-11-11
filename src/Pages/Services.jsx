@@ -37,11 +37,15 @@ const Services = () => {
         <button className="btn btn-primary"><FaFilter /> filter by price</button>
       </form>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {
+        services.length > 0 ? <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
         {services.map((service) => (
           <ServiceCard data={service} key={service._id} />
         ))}
-      </div>
+      </div> : <h1 className="font-bold text-3xl text-base-content text-center mt-1 mb-3">
+        Services Is Not Available
+      </h1>
+      }
     </>
   );
 };

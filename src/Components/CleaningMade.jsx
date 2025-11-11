@@ -5,7 +5,9 @@ import homeImg from "../assets/Home-cleaning.webp";
 
 const CleaningMade = () => {
   return (
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mt-12 mb-8">
+    <div
+      className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mt-12 mb-8"
+    >
       <div className="card bg-base-100 shadow-sm hover:rounded-none transition duration-200 cursor-pointer hover:scale-105">
         <figure className="p-6">
           <img src={homeImg} alt="Home img" className="rounded-xl" />

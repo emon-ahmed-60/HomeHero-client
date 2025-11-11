@@ -2,10 +2,16 @@ import React from "react";
 import { BsPersonWorkspace } from "react-icons/bs";
 import { FaStore } from "react-icons/fa";
 import { IoIosHome } from "react-icons/io";
+import { motion } from "motion/react";
 
 const HelpingThose = () => {
   return (
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mt-12 mb-8">
+    <motion.div 
+    initial={{ opacity: 0, x: -100, y: 50 }}
+          whileInView={{ opacity: 1, x: 0, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
+          viewport={{once:true, amount: 0.3 }}
+    className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mt-12 mb-8">
       <div className="card bg-base-100 card-md shadow-sm hover:rounded-none transition duration-200 cursor-pointer hover:scale-105">
         <div className="card-body">
           <div>
@@ -44,7 +50,7 @@ const HelpingThose = () => {
           </p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
