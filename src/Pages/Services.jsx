@@ -25,7 +25,7 @@ const Services = () => {
     })
   }
 
-  // /filter-services
+  
   return (
     <>
       <h1 className="font-bold text-3xl text-base-content text-center mt-1 mb-3">

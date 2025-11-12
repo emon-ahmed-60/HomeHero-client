@@ -162,21 +162,7 @@ const Navbar = () => {
                 </button>
               </ul>
             </div>
-            {/* <div className="dropdown dropdown dropdown-center">
-                  <div tabIndex={0} role="button" className="cursor-pointer">
-                    <img
-                      src={user?.photoURL}
-                      alt=""
-                      className="w-8 rounded-full"
-                    />
-                  </div>
-                  <ul
-                    tabIndex="-1"
-                    className="dropdown-content menu bg-base-100 rounded-box z-50 w-52 p-2 shadow-sm"
-                  >
-                    <li className="font-semibold"> {user?.email} </li>
-                  </ul>
-                </div> */}
+           
           </div>
         ) : (
           <>

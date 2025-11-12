@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import useAxios from "../Hooks/useAxios";
 import { toast } from "react-toastify";
 import useAuth from "../Hooks/useAuth";
 import Swal from "sweetalert2";
+import { CiStar } from "react-icons/ci";
+import { Link } from "react-router";
 
 const MyBooking = () => {
   const instance = useAxios();
   const [bookings, setBookings] = useState([]);
-  const {user} = useAuth();
+  const { user } = useAuth();
+  const bookRef = useRef(null);
 
   useEffect(() => {
     instance
@@ -28,24 +31,34 @@ const MyBooking = () => {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!"
+      confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-       instance.delete(`/my-booking/${id}`)
-        .then(res => {
-          Swal.fire({
-          title: "Deleted!",
-          text: "Your Booking has been deleted.",
-          icon: "success"
-        });
-        const remaining = bookings.filter(booking => booking._id !== id)
-        setBookings([...remaining])
-        }).catch(err => {
-          toast.error(err.code)
-        })
+        instance
+          .delete(`/my-booking/${id}`)
+          .then((res) => {
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your Booking has been deleted.",
+              icon: "success",
+            });
+            const remaining = bookings.filter((booking) => booking._id !== id);
+            setBookings([...remaining]);
+          })
+          .catch((err) => {
+            toast.error(err.code);
+          });
       }
     });
-  }
+  };
+
+  // const handleAddReview = (e) => {
+  //   e.preventDefault();
+  //   const review = e.target.reviewBox.value;
+  //   const rating = e.target.rating.value;
+  //   const newObj = {review,rating};
+  //   console.log(newObj);
+  // };
   return (
     <div>
       <div className="overflow-x-auto">
@@ -59,6 +72,7 @@ const MyBooking = () => {
               <th>price</th>
               <th>email</th>
               <th>Delete Booking</th>
+              <th>Add Review</th>
             </tr>
           </thead>
           <tbody>
@@ -72,9 +86,21 @@ const MyBooking = () => {
                   <td> {booking.userEmail} </td>
                   <td>
                     {" "}
-                    <button onClick={() => handleBookingDelete(booking._id)} className="btn btn-primary rounded-full">
+                    <button
+                      onClick={() => handleBookingDelete(booking._id)}
+                      className="btn btn-primary rounded-full"
+                    >
                       Delete
                     </button>{" "}
+                  </td>
+                  <td>
+                    {" "}
+                    <Link
+                      to={`/review-page/${booking.serviceId}`}
+                      className="btn btn-primary rounded-full"
+                    >
+                      Add Review
+                    </Link>{" "}
                   </td>
                 </tr>
               );
@@ -82,6 +108,7 @@ const MyBooking = () => {
           </tbody>
         </table>
       </div>
+     
     </div>
   );
 };

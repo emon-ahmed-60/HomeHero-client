@@ -13,6 +13,7 @@ import NotFound from "../Components/NotFound";
 import Spinner from "../Components/Spinner";
 import MyServiceCard from "../Components/MyServiceCard";
 import ServiceDetails from "../Pages/ServiceDetails";
+import ReviewPage from "../Pages/ReviewPage";
 
 const router = createBrowserRouter([
     {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
              {
                 path:"/service",
                 Component:Services
+            },
+            {
+                path:"/review-page/:id",
+                element:<PrivateRoute> <ReviewPage/> </PrivateRoute>
             },
             {
                 path:"/my-service-card/:id",

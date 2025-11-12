@@ -20,7 +20,7 @@ const AddService = () => {
         const providerName = e.target.name.value;
         const email = e.target.email.value;
         const newService = {serviceName,category,description,serviceImg,created_at,price,providerName,email}
-        console.log(newService);
+  
         instance.post("/add-service",newService)
         .then(data => {
             toast.success("service added")
