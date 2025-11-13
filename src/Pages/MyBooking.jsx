@@ -3,14 +3,12 @@ import useAxios from "../Hooks/useAxios";
 import { toast } from "react-toastify";
 import useAuth from "../Hooks/useAuth";
 import Swal from "sweetalert2";
-import { CiStar } from "react-icons/ci";
 import { Link } from "react-router";
 
 const MyBooking = () => {
   const instance = useAxios();
   const [bookings, setBookings] = useState([]);
   const { user } = useAuth();
-  const bookRef = useRef(null);
 
   useEffect(() => {
     instance
@@ -52,13 +50,6 @@ const MyBooking = () => {
     });
   };
 
-  // const handleAddReview = (e) => {
-  //   e.preventDefault();
-  //   const review = e.target.reviewBox.value;
-  //   const rating = e.target.rating.value;
-  //   const newObj = {review,rating};
-  //   console.log(newObj);
-  // };
   return (
     <div>
       <div className="overflow-x-auto">
@@ -108,7 +99,6 @@ const MyBooking = () => {
           </tbody>
         </table>
       </div>
-     
     </div>
   );
 };

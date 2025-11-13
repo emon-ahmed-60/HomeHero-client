@@ -10,15 +10,17 @@ const Home = () => {
   const instance = useAxios();
 
   useEffect(() => {
-    instance.get("/latest-services").then((data) => {
+    instance.get("/top-rated-reviews").then((data) => {
       setServices([...data.data]);
+      console.log(data.data);
     });
   }, []);
+
   return (
     <div className="overflow-hidden">
       <Banner />
       <h1 className="font-bold text-3xl text-base-content text-center mt-4">
-        Our Latest Services
+        Top Rated Services
       </h1>
       <div
        className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mt-12 mb-8">

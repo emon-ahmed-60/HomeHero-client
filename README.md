@@ -1,4 +1,7 @@
-# HomeHero – Local Household Service Finder
+## HomeHero – Local Household Service Finder
+HomeHero is a modern web application that connects users with trusted local service
+providers such as electricians, plumbers, and cleaners. Users can browse services, book
+appointments, and leave ratings, while providers can manage their listings.
 
 ## 🌐 Live URL
 Live url
@@ -17,6 +20,6 @@ Live url
 * **Booking & Appointment System:**  
   Users can book services, select their preferred date and time, and view booking history directly from their dashboard.
 
-* **Secure Checkout System (Planned):**  
-  Integration with Stripe or PayPal will enable users to make safe and seamless payments directly through the platform.
+* **Rating & Review System:**
+Users can rate and write reviews for booked services. Each review is stored under the specific service as an array of review objects, and the top-rated services are dynamically displayed on the homepage.
 

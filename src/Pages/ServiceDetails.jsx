@@ -174,7 +174,7 @@ const ServiceDetails = () => {
             >
               <div className="flex items-center gap-4 justify-start w-full">
                 <figure>
-                {review.photo ? (
+                {user.photoURL ? (
                   <img
                     src={review.photo}
                     alt=""
@@ -190,6 +190,7 @@ const ServiceDetails = () => {
                 <p className="font-semibold text-base-content">{review.review}</p>
                 <div className="flex items-center justify-end gap-2">
                   {review.rating}
+                  
                 </div>
               </div>
             </div>

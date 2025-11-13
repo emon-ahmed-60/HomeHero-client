@@ -32,7 +32,7 @@ const Profile = () => {
             alt="profile photo"
             className="w-24 rounded-full border-4 border-primary"
           />
-          <div>
+          <div className="pl-4">
             <h2 className="font-bold text-xl lg:text-2xl text-base-content">
               Name : {user?.displayName}
             </h2>
