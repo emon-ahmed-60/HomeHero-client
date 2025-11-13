@@ -165,40 +165,57 @@ const ServiceDetails = () => {
       <h1 className="font-bold text-3xl text-base-content text-center my-8">
         Customer Reviews For This Service
       </h1>
-      {reviews.length > 0 ? <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {reviews.map((review) => {
-          return (
-            <div
-              key={review._id}
-              className="card bg-base-100 card-xs shadow-sm p-4 flex items-center ga-4"
-            >
-              <div className="flex items-center gap-4 justify-start w-full">
-                <figure>
-                {user.photoURL ? (
-                  <img
-                    src={review.photo}
-                    alt=""
-                    className="w-12 rounded-full"
-                  />
-                ) : (
-                  <FaUserCircle className="w-12 h-12 rounded-full" />
-                )}
-              </figure>
-                <h2 className="card-title text-xl">{review.name}</h2>
-              </div>
-              <div className="card-body w-full my-2">
-                <p className="font-semibold text-base-content">{review.review}</p>
-                <div className="flex items-center justify-end gap-2">
-                  {review.rating}
-                  
+      {reviews.length > 0 ? (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {reviews.map((review) => {
+            return (
+              <div
+                key={review._id}
+                className="card bg-base-100 card-xs shadow-sm p-4 flex items-center ga-4"
+              >
+                <div className="flex items-center gap-4 justify-start w-full">
+                  <figure>
+                    {user.photoURL ? (
+                      <img
+                        src={review.photo}
+                        alt=""
+                        className="w-12 rounded-full"
+                      />
+                    ) : (
+                      <FaUserCircle className="w-12 h-12 rounded-full" />
+                    )}
+                  </figure>
+                  <h2 className="card-title text-xl">{review.name}</h2>
+                </div>
+                <div className="card-body w-full my-2">
+                  <p className="font-semibold text-base-content">
+                    {review.review}
+                  </p>
+                  <div className="flex items-center justify-end gap-2">
+                    {review.rating == 5 ? (
+                      <p className="text-right">⭐⭐⭐⭐⭐</p>
+                    ) : review.rating == 4 ? (
+                      <p className="text-right">⭐⭐⭐⭐</p>
+                    ) : review.rating == 3 ? (
+                      <p className="text-right">⭐⭐⭐</p>
+                    ) : review.rating == 2 ? (
+                      <p className="text-right">⭐⭐</p>
+                    ) : review.rating == 1 ? (
+                      <p className="text-right">⭐</p>
+                    ) : (
+                      <p className="text-right">No rating</p>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
-      </div> : <h1 className="font-bold text-3xl text-base-content text-center my-8">
-        No Reviews In This Service
-      </h1>}
+            );
+          })}
+        </div>
+      ) : (
+        <h1 className="font-bold text-3xl text-base-content text-center my-8">
+          No Reviews In This Service
+        </h1>
+      )}
     </>
   );
 };

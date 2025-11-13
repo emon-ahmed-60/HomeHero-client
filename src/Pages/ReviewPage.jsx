@@ -26,7 +26,6 @@ const ReviewPage = () => {
     }).catch(err => {
       toast.error(err.code)
     })
-    
   };
   return (
     <div className="card bg-base-100 mx-auto w-full max-w-sm shrink-0 shadow-2xl">

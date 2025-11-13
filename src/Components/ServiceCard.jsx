@@ -2,19 +2,19 @@ import React from "react";
 import { Link } from "react-router";
 import { motion } from "motion/react";
 
-const ServiceCard = ({ data,i }) => {
-  const { serviceName, _id, description, serviceImg, price } = data || {};
+const ServiceCard = ({ data, i ,service}) => {
+  const { serviceName, _id, description, serviceImg, price } = data || service || {};
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 80 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.6,
-            delay: i * 0.1, // প্রতিটা কার্ড একটু দেরিতে আসবে সুন্দর effect এর জন্য
-            ease: "easeOut",
-          }}
-          viewport={{once:true, amount: 0.2 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 0.6,
+        delay: i * 0.1,
+        ease: "easeOut",
+      }}
+      viewport={{ once: true, amount: 0.2 }}
       className="card bg-base-100 shadow-sm hover:rounded-none transition duration-200 cursor-pointer hover:scale-105"
     >
       <figure>

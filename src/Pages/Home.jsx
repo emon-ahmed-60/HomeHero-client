@@ -12,7 +12,6 @@ const Home = () => {
   useEffect(() => {
     instance.get("/top-rated-reviews").then((data) => {
       setServices([...data.data]);
-      console.log(data.data);
     });
   }, []);
 
@@ -25,7 +24,7 @@ const Home = () => {
       <div
        className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mt-12 mb-8">
         {services.map((service,idx) => (
-          <ServiceCard key={service._id} data={service} i={idx}/>
+          <ServiceCard key={service._id}  i={idx} service={service.service}/>
         ))}
       </div>
       <h1 className="font-bold text-3xl text-base-content text-center mt-4">
