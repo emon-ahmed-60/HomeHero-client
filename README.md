@@ -1,10 +1,10 @@
 ## HomeHero – Local Household Service Finder
-HomeHero is a modern web application that connects users with trusted local service
-providers such as electricians, plumbers, and cleaners. Users can browse services, book
-appointments, and leave ratings, while providers can manage their listings.
+A modern platform to find and book fast and reliable household services in your local area. Built with a user-friendly design and effective search functionality.
 
-## 🌐 Live URL
-https://vocal-griffin-f90b6c.netlify.app
+## Project Overview
+
+HomeHero is a platform where users can find and book various household services (e.g. electrician, plumber, cleaner, etc.) according to their needs.It allows service providers to list their services and connect with users. It is an ideal project to showcase full-stack web development skills.
+
 
 ## ✨ Key Features
 
@@ -23,3 +23,49 @@ https://vocal-griffin-f90b6c.netlify.app
 * **Rating & Review System:**
 Users can rate and write reviews for booked services. Each review is stored under the specific service as an array of review objects, and the top-rated services are dynamically displayed on the homepage.
 
+## Tech Stack
+
+- **Frontend** : React.js, Next.js
+- **Backend** : Node.js, Express.js
+- **Database** : MongoDB
+- **Authentication** : Firebase
+- **Deployment** : Vercel 
+
+## Dependencies
+
+* `axios`
+* `react-router`
+* `react-toastify`
+* `swiper`
+* `tailwindcss`
+* `react-icons`
+* `firebase`
+
+## Installation
+
+Clone the repo and install dependencies
+
+```bash
+  git clone https://github.com/emon-ahmed-60/HomeHero-client.git
+  cd HomeHero-client
+  npm install
+```
+
+Set up environment variables by creating a .env file in the root directory:
+
+```bash
+  DATABASE_URL=your_database_url
+  Firebase_SECRET=your_firebase_secret
+```
+
+Run the application:
+
+```bash
+  npm run dev
+```
+
+## 🌐 Live URL
+https://vocal-griffin-f90b6c.netlify.app    
+## Live Link
+
+https://spotifycloneing.netlify.app/
