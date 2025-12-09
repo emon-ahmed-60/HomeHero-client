@@ -66,6 +66,4 @@ Run the application:
 
 ## 🌐 Live URL
 https://vocal-griffin-f90b6c.netlify.app    
-## Live Link
 
-https://spotifycloneing.netlify.app/
