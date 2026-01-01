@@ -14,6 +14,10 @@ import Spinner from "../Components/Spinner";
 import MyServiceCard from "../Components/MyServiceCard";
 import ServiceDetails from "../Pages/ServiceDetails";
 import ReviewPage from "../Pages/ReviewPage";
+import About from "../Pages/About";
+import PrivacyPolicy from "../Pages/PrivacyPolicy";
+import TermsCondition from "../Pages/TermsCondition";
+import Blog from "../Pages/Blog";
 
 const router = createBrowserRouter([
     {
@@ -26,16 +30,32 @@ const router = createBrowserRouter([
                 Component:Home
             },
             {
+                path:"/about",
+                Component:About
+            },
+            {
                 path:"/register",
                 Component:RegisterPage
             },
             {
-                path:"login",
+                path:"/login",
                 Component:LoginPage
             },
              {
                 path:"/service",
                 Component:Services
+            },
+            {
+                path:"/privacy-policy",
+                Component:PrivacyPolicy
+            },
+            {
+                path:"/terms-condition",
+                Component:TermsCondition
+            },
+            {
+                path:"/blog",
+                Component:Blog
             },
             {
                 path:"/review-page/:id",
@@ -47,7 +67,7 @@ const router = createBrowserRouter([
             },
             {
                 path:"/service-details/:id",
-                element:<PrivateRoute> <ServiceDetails/> </PrivateRoute>
+                element:<ServiceDetails/> 
             },
             {
                 path:"/profile",

@@ -4,6 +4,9 @@ import useAxios from "../Hooks/useAxios";
 import ServiceCard from "../Components/ServiceCard";
 import CleaningMade from "../Components/CleaningMade";
 import HelpingThose from "../Components/HelpingThose";
+import StaticCounter from "../Components/StaticCounter";
+import HowItWorks from "../Components/HowItWorks";
+import NewsLatter from "../Components/NewsLatter";
 
 const Home = () => {
   const [services, setServices] = useState([]);
@@ -22,15 +25,27 @@ const Home = () => {
         Top Rated Services
       </h1>
       <div
-       className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mt-12 mb-8">
+       className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-12 mb-8">
         {services.map((service,idx) => (
           <ServiceCard key={service._id}  i={idx} service={service.service}/>
         ))}
       </div>
       <h1 className="font-bold text-3xl text-base-content text-center mt-4">
+        Statistics Counter
+      </h1>
+      <StaticCounter />
+      <h1 className="font-bold text-3xl text-base-content text-center mt-4">
         Professional Cleaning Made Simple
       </h1>
       <CleaningMade />
+      <h1 className="font-bold text-3xl text-base-content text-center mt-4">
+        How It Works
+      </h1>
+      <HowItWorks />
+      <h1 className="font-bold text-3xl text-base-content text-center mt-4">
+        Newsletter
+      </h1>
+      <NewsLatter/>
       <h1 className="font-bold text-3xl text-base-content text-center mt-4">
         Helping Those Who Need It Most
       </h1>

@@ -175,7 +175,7 @@ const ServiceDetails = () => {
               >
                 <div className="flex items-center gap-4 justify-start w-full">
                   <figure>
-                    {user.photoURL ? (
+                    {user?.photoURL ? (
                       <img
                         src={review.photo}
                         alt=""

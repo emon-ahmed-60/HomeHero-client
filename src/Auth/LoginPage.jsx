@@ -1,7 +1,7 @@
 import React from "react";
 import useAuth from "../Hooks/useAuth";
 import { toast } from "react-toastify";
-import { useLocation, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 
 const LoginPage = () => {
   const location = useLocation();
@@ -62,7 +62,12 @@ const LoginPage = () => {
               placeholder="Your Password"
               name="password"
             />
-
+<div>
+              Dont have a account ? please{" "}
+              <Link className="text-primary underline" to="/register">
+                Register
+              </Link>
+            </div>
             <button type="submit" className="btn btn-neutral mt-4">
               Login
             </button>

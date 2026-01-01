@@ -15,6 +15,9 @@ const Navbar = () => {
       <li>
         <NavLink to="/service">Services</NavLink>{" "}
       </li>
+      <li>
+        <NavLink to="/about">About Us</NavLink>{" "}
+      </li>
       {user && (
         <>
           <li>
@@ -55,7 +58,8 @@ const Navbar = () => {
   };
  
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="bg-base-100 shadow-sm sticky top-0 left-0 z-10">
+  <div className="navbar container mx-auto px-5">
       <div className="navbar-start">
         <div className="dropdown z-10">
           <div
@@ -170,13 +174,13 @@ const Navbar = () => {
             <Link to="/login" className="btn btn-primary">
               Login
             </Link>
-            <Link to="/register" className="btn btn-primary">
-              Register
-            </Link>
+            
           </>
         )}
       </div>
     </div>
+    </div>
+  
   );
 };
 
