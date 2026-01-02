@@ -18,6 +18,7 @@ import About from "../Pages/About";
 import PrivacyPolicy from "../Pages/PrivacyPolicy";
 import TermsCondition from "../Pages/TermsCondition";
 import Blog from "../Pages/Blog";
+import Dashboard from "../Layout/DashboardLayout";
 
 const router = createBrowserRouter([
     {
@@ -70,20 +71,30 @@ const router = createBrowserRouter([
                 element:<ServiceDetails/> 
             },
             {
-                path:"/profile",
-                element:<PrivateRoute> <Profile/> </PrivateRoute>
+                path:"*",
+                Component:NotFound
+            }
+        ]
+    },
+    {
+        path:"/dashboard",
+        element:<PrivateRoute> <Dashboard/> </PrivateRoute>,
+        children:[
+            {
+                index:true,
+                Component:Profile
             },
             {
-                path:"/my-service",
-                element:<PrivateRoute> <MyServices/> </PrivateRoute>
+                path:"/dashboard/my-booking",
+                Component: MyBooking
             },
             {
-                path:"/add-service",
-                element:<PrivateRoute> <AddService/> </PrivateRoute>
+                path:"/dashboard/my-service",
+                Component: MyServices
             },
             {
-                path:"/my-booking",
-                element:<PrivateRoute> <MyBooking/> </PrivateRoute>
+                path:"/dashboard/add-service",
+                Component: AddService
             },
             {
                 path:"*",
