@@ -65,5 +65,5 @@ Run the application:
 ```
 
 ## 🌐 Live URL
-https://vocal-griffin-f90b6c.netlify.app    
+https://hom-hero.netlify.app/   
 
