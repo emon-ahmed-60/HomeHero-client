@@ -17,6 +17,7 @@
 body {
   overflow-x: hidden;
 }
+
 .menu a.active {
   @apply text-blue-600 underline
 }
